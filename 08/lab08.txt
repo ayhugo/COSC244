@@ -1,0 +1,23 @@
+1. Declare a class to be a subclass of Thread or declare a class that implements the runnanle interface.
+2. the run method
+3. start
+4. implements the readWriteThread instead of TCPExample and doesn't use a program to receive.
+5. 14 uses System.in as the input stream and starts the socket using using the OutputStream.
+15 uses the inputStream from the socket and starts System.out
+6. no.
+7. import java.net.*;
+   public class Client {
+   public static void main(String[] args) {
+          try {
+              int port = Integer.parseInt(args[0]);
+              Socket socket = new Socket(args[1], port);
+              System.err.println("Connected to " + args[1] + " on port " + port);
+              new ReadWriteThread(socket.getInputStream(), System.out).start();
+              new ReadWriteThread(System.in, socket.getOutputStream()).start();
+           } catch (Exception e) {
+              e.printStackTrace();
+              System.err.println("\nUsage: java Client <port> [host]");
+           }
+}
+}
+8. They appear to be jumbled because each fruit has another fruit that has the same pause. they are trying to be printed at the same time but one has to be printed before the other.

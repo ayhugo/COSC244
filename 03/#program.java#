@@ -1,0 +1,15 @@
+import java.io.*;
+public class progam {
+    public static void main(String[] args){
+        OutputStream out = System.out;
+        InputStream in = System.in;
+        int i = 0;
+        while (i != -1) {
+            i = in.read();
+            out.write(i);
+        }
+
+        in.close();
+        out.close();
+    }
+}

@@ -1,0 +1,26 @@
+q1. inputStream
+q2. public static final InputStream in
+q3. final
+q4. IOException
+q5. printStream
+q6. public static final OutputStream out
+q7. int
+q8. OutputStream out = System.out;
+    InputStream in = System.in;
+    int i = 0;
+    try {
+    while (i != -1) {
+        i=in.read();
+        out.write(a);
+    }
+
+    in.close();
+    out.close();
+    } catch (IOException e) {
+    }
+q9. public class bufferedReader
+q10. returned as a string
+q11. scanner sc = new Scanner(System.in)
+q12. hasNextLine
+q13. nextLine returns a string
+q14. hasNextLine before nextLine

@@ -1,0 +1,6 @@
+ncrypting data using a bit-level cipher involves taking an encryption key, let’s say a simple
+string, and performing an XOR (exclusive OR) operation between each byte in the key and the
+corresponding byte in the information to be encrypted. If the encryption key is shorter than
+the data, then just loop back to the start of the encryption key and continue the process until
+all data has been encrypted. To decrypt the encrypted data, simply repeat the encryption
+process, since performing two XORs with the same key will return the original valu

@@ -1,0 +1,144 @@
+// ChatServer.java
+2
+    3
+    import java.io.*;
+4
+    import java.net.*;
+5
+    import java.util.*;
+6
+    7
+    public class ChatServer {
+        8
+            9
+            private static List<ClientHandler> clients = new LinkedList<ClientHandler>();
+        10
+            11
+            public static void main(String[] args) {
+            12
+                try {
+                    13
+                        new ChatServer().startServer(Integer.parseInt(args[0]));
+                    14
+                        } catch (Exception e) {
+                    15
+                        e.printStackTrace();
+                    16
+                        System.err.println("\nUsage: java ChatServer <port>");
+                    17
+                        }
+            18
+                }
+        19
+            1
+            20
+            public void startServer(int port) throws Exception {
+            21
+                ServerSocket serverSocket = new ServerSocket(port);
+            22
+                System.err.println("ChatServer started");
+            23
+                while (true) {
+                    24
+                        ClientHandler ch = new ClientHandler(serverSocket.accept());
+                    25
+                        System.err.println("Accepted connection from " + ch);
+                    26
+                        synchronized (clients) {
+                            27
+                                clients.add(ch);
+                            28
+                                }
+                    29
+                        ch.start();
+                    30
+                        }
+            31
+                }
+        32
+            33
+            public static void sendAll(String line, ClientHandler sender) {
+            34
+                System.err.println("Sending ’" + line + "’ to : " + clients);
+            35
+                synchronized (clients) {
+                    36
+                        for (ClientHandler cl : clients) {
+                            37
+                                cl.send(sender + ": " + line);
+                            38
+                                }
+                    39
+                        }
+            40
+                }
+        41
+            42
+            public static class ClientHandler extends Thread {
+                43
+                    44
+                    private BufferedReader input;
+                45
+                    private PrintWriter output;
+                46
+                    private String id;
+                47
+                    private static int count = 0;
+                48
+                    49
+                    public ClientHandler(Socket socket) throws Exception {
+                    50
+                        input = new BufferedReader(
+                                                   51
+                                                   new InputStreamReader(socket.getInputStream()));
+                    52
+                        output = new PrintWriter(socket.getOutputStream(), true);
+                    53
+                        id = "client_" + ++count;
+                    54
+                        }
+                55
+                    56
+                    public void send(String line) {
+                    57
+                        output.println(line);
+                    58
+                        }
+                59
+                    60
+                    public String toString() {
+                    61
+                        return id;
+                    62
+                        }
+                63
+                    64
+                    public void run() {
+                    65
+                        try {
+                            66
+                                send("Welcome! You are " + this + ".");
+                            67
+                                String line;
+                            68
+                                while ((line = input.readLine()) != null) {
+                                    69
+                                        sendAll(line, this);
+                                    70
+                                        }
+                            71
+                                } catch (IOException e) {
+                            72
+                                e.printStackTrace();
+                            73
+                                } finally {
+                            74
+                                synchronized (clients) {
+                                    75
+                                        clients.remove(this);
+                                    76
+                                        } System.err.println(this + " closed connection!");                         
+                                                              }
+                        }
+      }
+ }

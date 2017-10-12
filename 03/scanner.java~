@@ -1,0 +1,11 @@
+import java.until.Scanner;
+
+public class scanner {
+    scanner sc = new Scanner(System.in);
+
+    while(sc.hasNextLine()){
+        String line = sc.nextLine();
+    }
+
+    System.out.println(line);
+}

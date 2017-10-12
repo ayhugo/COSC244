@@ -1,0 +1,13 @@
+public static void main(String[] args) {
+    InputStream in = System.in;
+    OutputStream out = System.out;
+
+    int i = 0;
+    while (i != -1) {
+        i = in.read();
+        out.write(i);
+    }
+
+    in.close();
+    out.close();
+}

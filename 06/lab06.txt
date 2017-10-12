@@ -1,0 +1,26 @@
+1. ^
+2. to get input bytes from a file or for reading in streams or raw bytes
+3. FileInputStream in = new FileInputStream(file);
+4. read() returns integer
+5. used for output of bytes
+6. FileOutputStream out = new FileOutputStream
+7. write(int b)
+8. close()
+9.
+public static void main(String[] args) {
+
+       int argsNum;
+
+       if (args.length > 0) {
+       try {
+           argsNum = Integer.parseInt(args[0]);
+           } catch (NumberFormatException e) {
+             System.err.println("Argument " + args[0] + "must be an integer.");
+             System.exit(1);
+             }
+}
+
+        for (int i = 0; i < argsNum; i++){
+        System.out.println("args[0]");
+}
+}

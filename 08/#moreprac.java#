@@ -1,0 +1,16 @@
+import java.net.*;
+
+public class Client {
+    public static void main(String[] args){
+        try {
+            int port = integer.parseInt(args[0]);
+            SocketServer socketServer = new SocketServer(port);
+            System.err.println("waiting for client to connect");
+            Socket socket = socketServer.accept();
+            System.err.println("Accepted connection on port"+port);
+            new ReadWriteThread(socket.getInputStream(), System.out,"--> ").start();
+            new ReadWriteThread(System.in, socket.getOutputStream(),"").start();
+        } catch (Exception e){
+        }
+    }
+}

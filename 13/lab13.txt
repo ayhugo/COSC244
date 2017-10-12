@@ -1,0 +1,10 @@
+1. returns the local port number to which the socket is bound.
+2. returns the address in which the socket is connected to.
+3. returns the remote port number to which the socket is connect too.
+4. Prints an error containing the socket address, socket port, local port.
+5. prints err containing client host, ports and local ports
+6. 
+host 139.80.98.27:7777
+client1 139.80.98.27:46590
+client2 139.80.98.27:54678
+client3 139.80.98.27:43548

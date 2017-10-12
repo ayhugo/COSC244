@@ -1,0 +1,17 @@
+1. synchronized() is used so objects can run concurently.
+2. 15
+3. 31-37
+4. ChatServer started
+5. Accepted connection from client_1
+6. Connected to localhost on port 7777
+Welcome! You are client_1
+7. Accepted connection form client_2
+8. Connected to localhost on port 7777
+Welcome! You are client_2
+9. client_1: Hello from client 1
+10. client_1: hello from client 1
+11. Sending ’Hello from client 1’ to : [client_1, client_2, client_3]
+12. client_3 closed connection
+13. client_1 something
+14. Sending ’something’ to : [client_1, client_2]
+15. 4

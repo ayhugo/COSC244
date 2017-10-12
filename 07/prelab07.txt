@@ -1,0 +1,15 @@
+1.  reads bytes and decodes them into characters using the charset
+2.  to wrap an InputStreamReader within a BufferedReader
+BufferedRead in = bew BufferedReader(new InputStreamReader(System.in));
+3.  readLine() and returns String value
+4.  prints a String then terminates the line and doesn't return anything (void)
+5.  Creates a server socket at the specific port number from parameter
+6.  listens for a connection to be made to the socket and accepts it
+7.  Socket(InetAddress address, int port) or Socket(String host, int port)
+8.  returns an input for the socket
+9.  toString();
+10. initialised with the time at which is was created 
+11. Date date = new Date(); System.out.println(date.toString());
+12. that the port declared on the command line for that host name isn't the 
+right port between the client and server.
+Port number is required, and the hostname is optional.

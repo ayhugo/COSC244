@@ -1,0 +1,7 @@
+1. used to print a line
+2. To the output stream of the socket
+3. return the id (string)
+4. No, the cycle continues to increment
+5. 13, 21-23
+6. 10
+7. 1 thread waiting for clients to connect. 3 listening to clients. 6 read write 
